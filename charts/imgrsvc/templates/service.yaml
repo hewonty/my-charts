@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "imgr_svc_chart.fullname" . }}
+  name: {{ include "imgrsvc.fullname" . }}
   labels:
-    {{- include "imgr_svc_chart.labels" . | nindent 4 }}
+    {{- include "imgrsvc.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: NodePort
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      nodePort: 9090
+      targetPort: 9090
       protocol: TCP
       name: http
   selector:
-    {{- include "imgr_svc_chart.selectorLabels" . | nindent 4 }}
+    {{- include "imgrsvc.selectorLabels" . | nindent 4 }}

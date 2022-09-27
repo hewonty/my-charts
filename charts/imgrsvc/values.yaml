@@ -39,7 +39,9 @@ securityContext: {}
 service:
   type: NodePort
   port: 9090
+  nodePort: 9090
   targetPort: 9090
+  protocol: TCP
 
 ingress:
   enabled: false

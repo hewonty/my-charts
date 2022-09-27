@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "imgr_svc_chart.name" -}}
+{{- define "imgrsvc.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "imgr_svc_chart.fullname" -}}
+{{- define "imgrsvc.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "imgr_svc_chart.chart" -}}
+{{- define "imgrsvc.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "imgr_svc_chart.labels" -}}
-helm.sh/chart: {{ include "imgr_svc_chart.chart" . }}
-{{ include "imgr_svc_chart.selectorLabels" . }}
+{{- define "imgrsvc.labels" -}}
+helm.sh/chart: {{ include "imgrsvc.chart" . }}
+{{ include "imgrsvc.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "imgr_svc_chart.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "imgr_svc_chart.name" . }}
+{{- define "imgrsvc.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "imgrsvc.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "imgr_svc_chart.serviceAccountName" -}}
+{{- define "imgrsvc.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "imgr_svc_chart.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "imgrsvc.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

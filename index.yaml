@@ -3,9 +3,9 @@ entries:
   imgrsvc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-09-27T11:53:52.97314328Z"
+    created: "2022-09-27T14:19:30.517748702Z"
     description: A Helm chart for Kubernetes
-    digest: 7beee4da397fffec741a2e645cd48c752e9d0419ac2c7ed2e721f2e98f15bcc7
+    digest: b46b44d6d708c271b3c029f3d9290f88aaae5f2e3c74110baf9f7dd22a7b8ca2
     name: imgrsvc
     type: application
     urls:
@@ -14,12 +14,12 @@ entries:
   vagrantsvc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-09-27T11:53:52.973685939Z"
+    created: "2022-09-27T14:19:30.518316055Z"
     description: A Helm chart for Kubernetes
-    digest: 4becfe5d3e6bb147b2608bffcd7a27b3aa614a3342ba33a294147e9ffda1af05
+    digest: a09324e1de3b17c7304348f1fd6851fe8269ce35cba597064b1644f2223f77f8
     name: vagrantsvc
     type: application
     urls:
     - https://hewonty.github.io/my-charts/vagrantsvc-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-27T11:53:52.972328653Z"
+generated: "2022-09-27T14:19:30.51694365Z"
